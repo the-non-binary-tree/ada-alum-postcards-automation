@@ -16,8 +16,5 @@ Recipients: {recipients}
 Delivery Method: {self.deliveryMethod}
         '''
 
-    def matchRecipients(self, recipients):
-        if len(recipients) <= self.postcardNum:
-            self.recipients = recipients
-        else:
-            self.recipients = recipients[:self.postcardNum + 1]
+    def setRecipients(self, recipients):
+        self.recipients = recipients

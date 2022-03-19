@@ -2,6 +2,7 @@ import sys
 sys.path.append("/Users/sophiale/sandbox/python/ada-alum-postcards-automation/models")
 from Recipient import Recipient
 import csv
+import random
 
 '''
 Iterate through a csv file to get the info of current students
@@ -41,12 +42,13 @@ def parse_file(filename, recipients):
 '''
 Get all current students who will receive a postcard
 INPUT:
-sources: array of filepaths
-OUTPUT: array of Recipient instances
+sources: an array of filepaths
+OUTPUT: an array of Recipient instances
 '''
 def get_all_recipients(sources):
     recipients = list()
     for filename in sources:
         parse_file(filename, recipients)
 
+    random.shuffle(recipients)
     return recipients

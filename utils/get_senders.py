@@ -42,8 +42,8 @@ def parse_file(filename, senders):
 '''
 Get all alumns who will send a postcard
 INPUT:
-sources: array of filepaths
-OUTPUT: array of Sender instances
+sources: an array of filepaths
+OUTPUT: an array of Sender instances
 '''
 def get_all_senders(sources):
     senders = list()
