@@ -1,4 +1,4 @@
-class Sender(object):
+class Sender:
     def __init__(self, fullname, email, postcardNum, deliveryMethod):
         self.fullname = fullname
         self.email = email
