@@ -1,19 +1,18 @@
 import sys
 sys.path.append("/Users/sophiale/sandbox/python/ada-alum-postcards-automation/models")
-from Recipient import Recipient
+from Sender import Sender
 import csv
 
 '''
-Iterate through a csv file to get the info of current students
+Iterate through a csv file to get the info of senders
 INPUT:
 filename: filepath to a csv file
-recipients: the array to which info about current students is stored
+senders: the array to which info about senders is stored
 OUTPUT:
 None
 '''
-def parse_file(filename, recipients):
+def parse_file(filename, senders):
     print('Starting parsing file:')
-    current_cohort = 17 
     with open(filename) as file_raw:
         print(f'Opening file {filename}')
         data_raw = csv.reader(file_raw, delimiter=',')
@@ -29,24 +28,26 @@ def parse_file(filename, recipients):
             firstname = row[columns.index("First Name")]
             lastname = row[columns.index("Last Name")]
             email = row[columns.index("Email")]
+            postcardNum = row[columns.index("Number of Postcards")]
+            deliveryMethod = row[columns.index("Delivery Method")]
 
-            # instance a Recipient
-            recipient = Recipient(
-                firstname, lastname, current_cohort, email)
+            # instance a Sender
+            sender = Sender(
+                firstname, lastname, email, postcardNum, deliveryMethod)
 
-            recipients.append(recipient)
+            senders.append(sender)
 
     print('Finish parsing file and filter data.')
 
 '''
-Get all current students who will receive a postcard
+Get all alumns who will send a postcard
 INPUT:
 sources: array of filepaths
-OUTPUT: array of Recipient instances
+OUTPUT: array of Sender instances
 '''
-def get_all_recipients(sources):
-    recipients = list()
+def get_all_senders(sources):
+    senders = list()
     for filename in sources:
-        parse_file(filename, recipients)
+        parse_file(filename, senders)
 
-    return recipients
+    return senders
