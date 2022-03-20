@@ -1,9 +1,9 @@
 import sys
-sys.path.append("/Users/sophiale/sandbox/python/ada-alum-postcards-automation/utils/get_recipients.py")
-sys.path.append("/Users/sophiale/sandbox/python/ada-alum-postcards-automation/utils/get_senders.py")
+from utils.get_recipients import get_all_recipients
+import constants
 
-recipientSources = [
-        "/Users/sophiale/sandbox/python/ada-alum-postcards-automation/assets/Full Campus View-Grid view (1).csv",
-        "/Users/sophiale/sandbox/python/ada-alum-postcards-automation/assets/Full Campus View-Grid view.csv"
-    ]
+student_directory = constants.STUDENT_DIRECTORY
+print(student_directory)
+all_students = get_all_recipients(student_directory)
 
+print(all_students)
