@@ -25,15 +25,13 @@ def parse_file(filename, senders):
                 firstline = False
                 continue
 
-            firstname = row[columns.index("First Name")]
-            lastname = row[columns.index("Last Name")]
-            email = row[columns.index("Email")]
-            postcardNum = row[columns.index("Number of Postcards")]
-            deliveryMethod = row[columns.index("Delivery Method")]
+            fullname = row[columns.index("Your First & Last Name")]
+            email = row[columns.index("Your Email Address")]
+            postcardNum = int(row[columns.index("How many cards/post cards can you commit to writing?")])
 
             # instance a Sender
             sender = Sender(
-                firstname, lastname, email, postcardNum, deliveryMethod)
+                fullname, email, postcardNum)
 
             senders.append(sender)
 
@@ -45,9 +43,10 @@ INPUT:
 sources: an array of filepaths
 OUTPUT: an array of Sender instances
 '''
-def get_all_senders(sources):
+def get_all_senders():
     senders = list()
+    sources = ['/Users/sophiale/sandbox/python/ada-alum-postcards-automation/assets/C17 POSTCARD SIGNUP (Responses) - Form Responses 1.csv']
     for filename in sources:
         parse_file(filename, senders)
-
+    # print(senders)
     return senders
