@@ -18,6 +18,7 @@ def get_recipients_for_one_sender(sender, recipients):
         sender.setRecipients(recipients)
         recipients.clear()
     else:
+        random.shuffle(recipients)
         pickRecipients = list()
         for _ in range(postcardNum + 1):
             cur = recipients.pop()

@@ -54,6 +54,7 @@ def get_all_recipients(sources):
             filepath = os.path.join(directory, csvFile)
             parse_file(filepath, recipients)
 
+<<<<<<< HEAD
     # random.shuffle(recipients)
     print(len(recipients))
     return recipients
@@ -98,3 +99,9 @@ def get_remaining_recipients():
 
 
 
+=======
+    random.shuffle(recipients)
+    print(len(recipients))
+    return recipients
+
+>>>>>>> c4e3160f0973b8fa3fdc8f3a26af80cb4ebdd99c

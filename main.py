@@ -1,4 +1,5 @@
 import sys
+<<<<<<< HEAD
 from utils.get_recipients import get_remaining_recipients
 from utils.get_senders import get_all_senders
 from utils.match_sender_recipients import match_all_senders
@@ -33,3 +34,13 @@ with open('C17-Postcard-Matches.csv', 'w') as f:
     write = csv.writer(f) 
     write.writerow(HEADERS) 
     write.writerows(rows)
+=======
+from utils.get_recipients import get_all_recipients
+import constants
+
+student_directory = constants.STUDENT_DIRECTORY
+print(student_directory)
+all_students = get_all_recipients(student_directory)
+
+print(all_students)
+>>>>>>> c4e3160f0973b8fa3fdc8f3a26af80cb4ebdd99c
